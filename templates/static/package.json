@@ -1,7 +1,7 @@
 {
-    "name": "dashboard",
+    "name": "AquaQuant",
     "version": "1.0.0",
-    "description": "A template for creating a full stack wep app with Flask, NPM, Webpack, and Reactjs",
+    "description": "AquaQuant is a water utilization quantification/tracking platform that aims to help people conserve more water.",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,22 +11,16 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Eyongkevin/portfolio_template.git"
+        "url": "git+https://github.com/jshin313/AquaQuant.git"
     },
     "keywords": [
-        "portfolio",
-        "template",
         "python",
         "react",
         "npm",
+        "flask",
         "webpack"
     ],
-    "author": "Eyong Kevin",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/Eyongkevin/portfolio_template/issues"
-    },
-    "homepage": "https://github.com/Eyongkevin/portfolio_template#readme",
+    "author": "Jacob Shin",
     "devDependencies": {
         "@babel/core": "latest",
         "@babel/plugin-proposal-object-rest-spread": "latest",
