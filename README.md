@@ -1,6 +1,6 @@
-# (QuantAqua) A Water Usage Quantifier
+# (AquaQuant) A Water Usage Quantifier
 
-QuantAqua is a water utilization quantification/tracking platform that aims to help people conserve more water.
+AquaQuant is a water utilization quantification/tracking platform that aims to help people conserve more water.
 
 ## Background
 As droughts become more [common](https://climate.nasa.gov/news/2881/earths-freshwater-future-extremes-of-flood-and-drought/) and fresh water becomes more scarce, it is now more important than ever before to manage our water carefully. 
