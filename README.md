@@ -24,6 +24,17 @@ Thus, this platform hopes to provide a low cost water monitoring solution for th
 ## How it Works
 
 ## Code Installation
+```bash
+$ git clone https://github.com/jshin313/AquaQuant
+$ cd AquaQuant
+$ cd templates/static && npm install
+$ npm run watch
+$ cd AquaQuant # In new terminal
+$ virtualenv -v venv && source venv/bin/activate # Optional
+$ python3 run.py
+```
+
+Browse to http://localhost:5000 to view the website
 
 ## Sensor Setup
 
