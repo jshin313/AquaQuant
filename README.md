@@ -2,13 +2,24 @@
 
 QuantAqua is a water utilization quantification/tracking platform that aims to help people conserve more water.
 
+## Background
+As droughts become more [common](https://climate.nasa.gov/news/2881/earths-freshwater-future-extremes-of-flood-and-drought/) and fresh water becomes more scarce, it is now more important than ever before to manage our water carefully. 
+
+Unfortunately, current water monitoring solutions are either too expensive or difficult to setup for the average consumer. Commercial water monitoring products can cost anywhere from \$200 to [$700](https://www.cnet.com/reviews/flo-home-water-control-and-monitoring-preview/) for a *single* sensor.
+
+Furthermore, currently there is also a lack of water monitoring solutions offered in marketplace for the average consumer. Of the 5 water monitoring apps mentioned in [this](https://www.cnet.com/how-to/5-apps-to-help-you-save-water/) article, only one still actually offers a water monitoring solution; but even this platform only offers supports for a handful of areas mainly in CA and TX (none in Philly). This service is also mainly targeted towards large utility companies and not the everyday consumer, so if a consumer uses a utility company that doesn't support the app, then the consumer is out of luck.
+
+Thus, this platform hopes to provide a low cost water monitoring solution for the everyday consumer. Also, by utilizing low cost (Internet of Things) IoT sensors, you can get a detailed breakdown of exactly how much water each faucet, shower, and toilet uses in a given day, unlike most commercially available water monitoring products.
+
+[A 2020 Philly Codefest Submission](https://philly-codefest-2020.devpost.com/)
+
 ## Features
-* 
 * Integration with cheap IoT sensors to gauge water usage around the house (sinks, toilets, showers, etc.)
 * Tips on how and when to conserve water usage using data like weather and past trends in water usage
- 
-## Background
-As droughts become more [common](https://climate.nasa.gov/news/2881/earths-freshwater-future-extremes-of-flood-and-drought/) and fresh water becomes more scarce, it is now more important than ever before to manage our water carefully.
+* Information about where your water quality and where it comes from * 
+<!-- * Estimate your monthly stormwater surcharge * -->
+
+\* Only available for Philly
 
 ## How it Works
 
@@ -19,4 +30,5 @@ As droughts become more [common](https://climate.nasa.gov/news/2881/earths-fresh
 ## Credits
 * Dashboard Template: https://github.com/mui-org/material-ui/tree/master/docs/src/pages/getting-started/templates/dashboard
 * Hello Template: https://github.com/Eyongkevin/hello_template
+* Calendar Heatmap: https://github.com/tanykim/quantify-your-year
 * Material UI: https://material-ui.com/
