@@ -1,4 +1,4 @@
-# (AquaQuant) A Water Usage Quantifier
+# AquaQuant: A Water Usage Quantifier
 
 AquaQuant is a water utilization quantification/tracking platform that aims to help people conserve more water.
 
