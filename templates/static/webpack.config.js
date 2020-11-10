@@ -10,7 +10,8 @@ const config = {
         publicPath: resolve('../public')
     },
     resolve: {
-        extensions: ['.js','.jsx','.css']
+        extensions: ['.js','.jsx','.css'],
+
     },
     module: {
         rules: [
@@ -21,10 +22,10 @@ const config = {
             },
             {
                 test: /\.css$/,
-                loader: 'style-loader!css-loader?modules',
-                options: {
-                    modules: false,
-                },
+                loader: 'style-loader!css-loader',
+                // options: {
+                //     modules: false,
+                // },
             }
         ]
     }

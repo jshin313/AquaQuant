@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import CalendarHeatmap from 'react-calendar-heatmap';
 import ReactTooltip from 'react-tooltip';
 
-import 'react-calendar-heatmap/dist/styles.css';
+import './style.css';
 
 const today = new Date();
 
@@ -27,7 +27,7 @@ export default function HeatMap() {
           if (!value) {
             return 'color-empty';
           }
-          return `color-gitlab-${value.count}`;
+          return `color-water-${value.count}`;
         }}
         tooltipDataAttrs={value => {
           return {
