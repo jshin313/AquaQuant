@@ -23,6 +23,8 @@ import Chart from './Chart';
 import Today from './Today';
 import { withStyles } from "@material-ui/core/styles";
 
+import HeatMap from './HeatMap';
+
 // import Orders from './Orders';
 
 function Copyright() {
@@ -208,9 +210,10 @@ export default function Dashboard() {
                         </Grid>
                         {/* Recent Orders */}
                         <Grid item xs={12}>
-                            <Paper className={classes.paper}>
-                                {/* Put put heatmap here*/}
-                                {/* <Orders /> */}
+                            <Paper className={classes.paper} >
+                                    {/* TODO: Put put heatmap here*/}
+                                    <HeatMap />
+                                    {/* <Orders /> */}
                             </Paper>
                         </Grid>
                     </Grid>
