@@ -79,14 +79,14 @@
     fill: #ededed;
 }
 .react-calendar-heatmap .color-water-1 {
-    fill: #acd5f2;
+    fill: #8cd3ff ;
 }
 .react-calendar-heatmap .color-water-2 {
-    fill: #7fa8d1;
-}
-.react-calendar-heatmap .color-water-3 {
     fill: #5abcd8;
 }
+.react-calendar-heatmap .color-water-3 {
+    fill: #2196f3 ;
+}
 .react-calendar-heatmap .color-water-4 {
-    fill: #19857b;
+    fill: #1769aa;
 }

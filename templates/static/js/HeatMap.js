@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import CalendarHeatmap from 'react-calendar-heatmap';
 import ReactTooltip from 'react-tooltip';
+import Title from './Title';
 
 import './style.css';
 
@@ -11,12 +12,12 @@ export default function HeatMap() {
   const randomValues = getRange(350).map(index => {
     return {
       date: shiftDate(today, -index),
-      count: getRandomInt(1, 3),
+      count: getRandomInt(1, 4),
     };
   });
   return (
     <div>
-      <h2>Water Usage This Year</h2>
+      <Title>Water Usage This Year</Title>
       {/* <p>Random values with onClick and react-tooltip</p> */}
 
       <CalendarHeatmap
