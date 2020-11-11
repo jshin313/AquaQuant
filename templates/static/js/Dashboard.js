@@ -213,7 +213,6 @@ export default function Dashboard() {
                             <Paper className={classes.paper} >
                                     {/* TODO: Put put heatmap here*/}
                                     <HeatMap />
-                                    {/* <Orders /> */}
                             </Paper>
                         </Grid>
                     </Grid>

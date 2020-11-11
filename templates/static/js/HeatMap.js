@@ -3,10 +3,20 @@ import ReactDOM from 'react-dom';
 import CalendarHeatmap from 'react-calendar-heatmap';
 import ReactTooltip from 'react-tooltip';
 import Title from './Title';
+import Typography from '@material-ui/core/Typography';
+import { withStyles } from "@material-ui/core/styles";
 
 import './style.css';
 
 const today = new Date();
+
+const StatsTextTypography = withStyles({
+    root: {
+        display: 'flex',
+        padding: 5, 
+    },
+})(Typography);
+
 
 export default function HeatMap() {
     const randomValues = getRange(350).map(index => {
@@ -22,7 +32,6 @@ export default function HeatMap() {
     return (
         <div>
             <Title>Water Usage This Year</Title>
-            {/* <p>Random values with onClick and react-tooltip</p> */}
 
             <CalendarHeatmap
                 startDate={shiftDate(today, -300)}
@@ -45,6 +54,19 @@ export default function HeatMap() {
                 onClick={value => alert(`Clicked on a day with : ${value.gallons} gallons`)}
             />
             <ReactTooltip />
+
+            <StatsTextTypography component="p" variant="h5" color="textSecondary" >
+                You used a total of <mark> 12,000 gallons </mark> over the year with an average of <mark> 40 per a day</mark>.
+            </StatsTextTypography>
+            <StatsTextTypography component="p" variant="h5" color="textSecondary" >
+                Over the whole year, you used an average of <mark>280 gallons/week</mark>, and <mark>1,200 gallons/month</mark>.
+            </StatsTextTypography>
+            <StatsTextTypography component="p" variant="h5" color="textSecondary" >
+                Your lowest usage was on <mark>October 20, 2020</mark> with only <mark>2 gallons</mark> used.
+            </StatsTextTypography>
+            <StatsTextTypography component="p" variant="h5" color="textSecondary" >
+                Your highest usage was on <mark>July 10, 2020</mark> with <mark>90 gallons</mark> used.
+            </StatsTextTypography>
         </div>
     );
 }

@@ -90,3 +90,11 @@
 .react-calendar-heatmap .color-water-4 {
     fill: #1769aa;
 }
+
+mark {
+    background-color: #8cd3ff;
+    padding-left: 1px;
+    padding-right: 1px;
+    margin-left: 6px;
+    margin-right: 6px;
+}
