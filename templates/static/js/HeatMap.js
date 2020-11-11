@@ -17,6 +17,17 @@ const StatsTextTypography = withStyles({
     },
 })(Typography);
 
+const secondBlue = {
+    backgroundColor: "#5abcd8",
+};
+
+const thirdBlue = {
+    backgroundColor: "#2196f3 ",
+};
+
+const fourthBlue = {
+    backgroundColor: "#1769aa",
+};
 
 export default function HeatMap() {
     const randomValues = getRange(350).map(index => {
@@ -56,16 +67,16 @@ export default function HeatMap() {
             <ReactTooltip />
 
             <StatsTextTypography component="p" variant="h5" color="textSecondary" >
-                You used a total of <mark> 12,000 gallons </mark> over the year with an average of <mark> 40 per a day</mark>.
+                You used a total of <mark style={fourthBlue}> 12,000 gallons </mark> over the year with an average of <mark style={secondBlue}> 40 per a day</mark>.
             </StatsTextTypography>
             <StatsTextTypography component="p" variant="h5" color="textSecondary" >
-                Over the whole year, you used an average of <mark>280 gallons/week</mark>, and <mark>1,200 gallons/month</mark>.
+                Over the whole year, you used an average of <mark style={secondBlue}>280 gallons/week</mark>, and <mark style={thirdBlue}>1,200 gallons/month</mark>.
             </StatsTextTypography>
             <StatsTextTypography component="p" variant="h5" color="textSecondary" >
                 Your lowest usage was on <mark>October 20, 2020</mark> with only <mark>2 gallons</mark> used.
             </StatsTextTypography>
             <StatsTextTypography component="p" variant="h5" color="textSecondary" >
-                Your highest usage was on <mark>July 10, 2020</mark> with <mark>90 gallons</mark> used.
+                Your highest usage was on <mark style={secondBlue}>July 10, 2020</mark> with <mark style={secondBlue}>90 gallons</mark> used.
             </StatsTextTypography>
         </div>
     );
