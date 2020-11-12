@@ -32,6 +32,7 @@
         "babel-preset-es2015": "latest",
         "babel-preset-react": "latest",
         "css-loader": "^5.0.1",
+        "jquery": "^3.5.1",
         "react": "^16.6.0",
         "react-dom": "^16.6.0",
         "style-loader": "^2.0.0",
@@ -44,6 +45,7 @@
         "react-calendar-heatmap": "^1.8.1",
         "react-router-dom": "^4.3.1",
         "react-tooltip": "3.8.1",
-        "recharts": "^1.8.5"
+        "recharts": "^1.8.5",
+        "styled-components": "3.2.0"
     }
 }
