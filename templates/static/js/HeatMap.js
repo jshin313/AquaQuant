@@ -72,16 +72,16 @@ export default function HeatMap() {
             <ReactTooltip />
 
             <StatsTextTypography component="p" variant="h5" color="textSecondary" >
-                You used a total of <Highlight color={fourthBlue}> 12,000 gallons</Highlight> over the year with an average of <ii style={secondBlue}> 40 per a day</ii>.
+                You used a total of <Highlight color={fourthBlue}> 12,000 gallons</Highlight> over the year with an average of <Highlight color={secondBlue}> 40 per a day</Highlight>.
             </StatsTextTypography>
             <StatsTextTypography component="p" variant="h5" color="textSecondary" >
-                Over the whole year, you used an average of <ii style={secondBlue}>280 gallons/week</ii>, and <ii style={thirdBlue}>1,200 gallons/month</ii>.
+                Over the whole year, you used an average of <Highlight color={secondBlue}>280 gallons/week</Highlight>, and <Highlight color={thirdBlue}>1,200 gallons/month</Highlight>.
             </StatsTextTypography>
             <StatsTextTypography component="p" variant="h5" color="textSecondary" >
-                Your lowest usage was on <ii>October 20, 2020</ii> with only <ii>2 gallons</ii> used.
+                Your lowest usage was on <Highlight color={firstBlue}>October 20, 2020</Highlight> with only <Highlight color={firstBlue}>2 gallons</Highlight> used.
             </StatsTextTypography>
             <StatsTextTypography component="p" variant="h5" color="textSecondary" >
-                Your highest usage was on <ii style={secondBlue}>July 10, 2020</ii> with <ii style={secondBlue}>90 gallons</ii> used.
+                Your highest usage was on <Highlight color={secondBlue}>July 10, 2020</Highlight> with <Highlight color={secondBlue}>90 gallons</Highlight> used.
             </StatsTextTypography>
         </div>
     );

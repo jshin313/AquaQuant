@@ -2,13 +2,13 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 export default function Highlight({color, children}) {
-    const Div = styled.div`
+    const Span = styled.span`
         ${color};
         display: inline;
     `;
 
     return (
-        <Div>{ children }</Div>
+        <Span>{ children }</Span>
     );
 }
 
