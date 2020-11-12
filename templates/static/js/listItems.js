@@ -8,32 +8,45 @@ import LocalDrink from '@material-ui/icons/LocalDrink';
 import Cloud from '@material-ui/icons/Cloud';
 import { Link } from "react-router-dom";
 
+import styled from 'styled-components';
+
+
+const StyledLink = styled(Link)`
+    text-decoration: none;
+    color: inherit;
+
+    &:focus, &:hover, &:visited, &:link, &:active {
+        text-decoration: none;
+        color: inherit;
+    }
+`;
+
 export const mainListItems = (
     <div>
-        <Link to="/">
+        <StyledLink to={"/"}>
             <ListItem button>
                 <ListItemIcon>
                     <DashboardIcon />
                 </ListItemIcon>
                 <ListItemText primary="Dashboard" />
             </ListItem>
-        </Link>
-        <Link to="/sensors">
+        </StyledLink>
+        <StyledLink to="/sensors">
             <ListItem button>
                 <ListItemIcon>
                     <Cloud />
                 </ListItemIcon>
                 <ListItemText primary="Your Sensors" />
             </ListItem>
-        </Link>
-        <Link to="/aboutwater">
+        </StyledLink>
+        <StyledLink to="/aboutwater">
             <ListItem button>
                 <ListItemIcon>
                     <LocalDrink />
                 </ListItemIcon>
                 <ListItemText primary="About Your Water" />
             </ListItem>
-        </Link>
+        </StyledLink>
     </div>
 );
 
