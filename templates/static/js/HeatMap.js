@@ -7,15 +7,20 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from "@material-ui/core/styles";
 
 import './style.css';
+import Highlight from "./Highlight";
 
 const today = new Date();
 
 const StatsTextTypography = withStyles({
     root: {
-        display: 'flex',
+        // display: 'flex',
         padding: 5, 
     },
 })(Typography);
+
+const firstBlue = {
+    backgroundColor: '#8cd3ff',
+};
 
 const secondBlue = {
     backgroundColor: "#5abcd8",
@@ -67,16 +72,16 @@ export default function HeatMap() {
             <ReactTooltip />
 
             <StatsTextTypography component="p" variant="h5" color="textSecondary" >
-                You used a total of <mark style={fourthBlue}> 12,000 gallons </mark> over the year with an average of <mark style={secondBlue}> 40 per a day</mark>.
+                You used a total of <Highlight color={fourthBlue}> 12,000 gallons</Highlight> over the year with an average of <ii style={secondBlue}> 40 per a day</ii>.
             </StatsTextTypography>
             <StatsTextTypography component="p" variant="h5" color="textSecondary" >
-                Over the whole year, you used an average of <mark style={secondBlue}>280 gallons/week</mark>, and <mark style={thirdBlue}>1,200 gallons/month</mark>.
+                Over the whole year, you used an average of <ii style={secondBlue}>280 gallons/week</ii>, and <ii style={thirdBlue}>1,200 gallons/month</ii>.
             </StatsTextTypography>
             <StatsTextTypography component="p" variant="h5" color="textSecondary" >
-                Your lowest usage was on <mark>October 20, 2020</mark> with only <mark>2 gallons</mark> used.
+                Your lowest usage was on <ii>October 20, 2020</ii> with only <ii>2 gallons</ii> used.
             </StatsTextTypography>
             <StatsTextTypography component="p" variant="h5" color="textSecondary" >
-                Your highest usage was on <mark style={secondBlue}>July 10, 2020</mark> with <mark style={secondBlue}>90 gallons</mark> used.
+                Your highest usage was on <ii style={secondBlue}>July 10, 2020</ii> with <ii style={secondBlue}>90 gallons</ii> used.
             </StatsTextTypography>
         </div>
     );
