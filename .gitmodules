@@ -1,0 +1,3 @@
+[submodule "static/react-calendar-heatmap"]
+	path = static/react-calendar-heatmap
+	url = https://github.com/freeCodeCamp/react-calendar-heatmap
