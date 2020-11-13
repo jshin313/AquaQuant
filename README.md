@@ -25,7 +25,7 @@ Thus, this platform hopes to provide a low cost water monitoring solution for th
 
 ## Code Installation
 ```bash
-$ git clone https://github.com/jshin313/AquaQuant
+$ git clone --recurse-submodules -j8 https://github.com/jshin313/AquaQuant
 $ cd AquaQuant
 $ cd templates/static && npm install
 $ npm run watch
