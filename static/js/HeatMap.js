@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import ReactDOM from 'react-dom';
 import CalendarHeatmap from 'react-calendar-heatmap';
 import ReactTooltip from 'react-tooltip';
@@ -8,6 +8,8 @@ import { withStyles } from "@material-ui/core/styles";
 
 import './style.css';
 import Highlight from "./Highlight";
+import {useHistory} from 'react-router-dom';
+
 
 const today = new Date();
 
@@ -45,6 +47,10 @@ export default function HeatMap() {
             count: cnt,
         };
     });
+
+    const history = useHistory();
+    const handleOnClick = useCallback((value) => history.push('/stats/' + value.date.toISOString().slice(0, 10)), [history]);
+
     return (
         <div>
             <Title>Water Usage This Year</Title>
@@ -60,6 +66,10 @@ export default function HeatMap() {
                     return `color-water-${value.count}`;
                 }}
                 tooltipDataAttrs={value => {
+                    // Temporary hack around null value.date issue
+                    if (!value || !value.date) {
+                        return null;
+                    }
                     return {
                         'data-tip': `On ${value.date.toISOString().slice(0, 10)} you used: ${
               value.gallons
@@ -67,7 +77,7 @@ export default function HeatMap() {
                     };
                 }}
                 showWeekdayLabels={true}
-                onClick={value => alert(`Clicked on a day with : ${value.gallons} gallons`)}
+                onClick={handleOnClick}
             />
             <ReactTooltip />
 

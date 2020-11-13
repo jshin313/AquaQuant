@@ -24,12 +24,6 @@ function RoutesContainer({ location, styles }) {
                                     <Dashboard {...props} classes={styles} />
                                 )}
                             />
-                            {/* <Route */}
-                            {/*     path='/sensors' */}
-                            {/*     render={(props) => ( */}
-                            {/*         <Sensors {...props} classes={styles} /> */}
-                            {/*     )} */}
-                            {/* /> */}
                             <Route path="/sensors" component={Sensors} />
                             {/* <Route path="/third" component={Third} /> */}
                         </Switch>

@@ -41,5 +41,6 @@ Browse to http://localhost:5000 to view the website
 ## Credits
 * Dashboard Template: https://github.com/mui-org/material-ui/tree/master/docs/src/pages/getting-started/templates/dashboard
 * Hello Template: https://github.com/Eyongkevin/hello_template
-* Calendar Heatmap: https://github.com/tanykim/quantify-your-year
+* ~~Heatmap: https://github.com/tanykim/quantify-your-year~~ (Couldn't get this one working, but tried to copy some aspects of this)
+* Calendar Heatmap: https://github.com/freeCodeCamp/react-calendar-heatmap/tree/fix/off-by-1-issues
 * Material UI: https://material-ui.com/
