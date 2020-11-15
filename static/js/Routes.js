@@ -25,7 +25,12 @@ function RoutesContainer({ location, styles }) {
                                     <Dashboard {...props} classes={styles} />
                                 )}
                             />
-                            <Route path="/sensors" component={Sensors} />
+                            <Route
+                                path='/sensors'
+                                render={(props) => (
+                                    <Sensors {...props} classes={styles} />
+                                )}
+                            />
                             <Route
                                 path='/stats'
                                 render={(props) => (
