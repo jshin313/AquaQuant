@@ -28,6 +28,8 @@ Thus, this platform hopes to provide a low cost water monitoring solution for th
 $ git clone --recurse-submodules -j8 https://github.com/jshin313/AquaQuant
 $ cd AquaQuant
 $ cd templates/static && npm install
+$ cd node_modules/react-calendar-heatmap && npm install # Do this everytime npm install is run for some reason
+$ cd ../../
 $ npm run watch
 $ cd AquaQuant # In new terminal
 $ virtualenv -v venv && source venv/bin/activate # Optional
@@ -38,9 +40,14 @@ Browse to http://localhost:5000 to view the website
 
 ## Sensor Setup
 
+## TODO
+* For the hackathon lots of things that are hardcoded could be made more responsive and dynamic
+
 ## Credits
 * Dashboard Template: https://github.com/mui-org/material-ui/tree/master/docs/src/pages/getting-started/templates/dashboard
 * Hello Template: https://github.com/Eyongkevin/hello_template
 * ~~Heatmap: https://github.com/tanykim/quantify-your-year~~ (Couldn't get this one working, but tried to copy some aspects of this)
 * Calendar Heatmap: https://github.com/freeCodeCamp/react-calendar-heatmap/tree/fix/off-by-1-issues
 * Material UI: https://material-ui.com/
+* React Router Example: https://codesandbox.io/s/l9m3zrj4lq
+* Ideas: https://www.instructables.com/Low-Cost-Water-Flow-Sensor-and-Ambient-Display/ and https://www.reddit.com/r/arduino/comments/jhxr3r/can_you_use_ultrasonic_sensors_to_detect_water/
