@@ -6,7 +6,7 @@ import Paper from '@material-ui/core/Paper';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 
-import StatsPage from './StatsPage';
+import SensorsPage from './SensorsPage';
 
 const localStyle = makeStyles((theme) => ({
     fixedHeight: {
@@ -27,19 +27,19 @@ export default function Sensors(props) {
             <Grid item xs={12} md={4}>
                 <Paper className={fixedHeightPaper}>
                     {/* TODO: Put thing here */}
-                    <StatsPage watersource="Faucet" title="Upstairs Bathroom Sink" date={date}/>
+                    <SensorsPage watersource="Faucet" title="Upstairs Bathroom Sink" date={date}/>
                 </Paper>
             </Grid>
             <Grid item xs={12} md={4}>
                 <Paper className={fixedHeightPaper}>
                     {/* TODO: Put thing here */}
-                    <StatsPage watersource="Shower" title="Shower" date={date}/>
+                    <SensorsPage watersource="Shower" title="Shower" date={date}/>
                 </Paper>
             </Grid>
             <Grid item xs={12} md={4}>
                 <Paper className={fixedHeightPaper}>
                     {/* TODO: Put thing here */}
-                    <StatsPage watersource="Toilet" title="Upstairs Toilet" date={date}/>
+                    <SensorsPage watersource="Toilet" title="Upstairs Toilet" date={date}/>
                 </Paper>
             </Grid>
 
