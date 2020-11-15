@@ -15,8 +15,8 @@ import Toilet from '@iconify-icons/mdi/toilet';
 import Shower from '@iconify-icons/mdi/shower-head';
 import Faucet from '@iconify-icons/mdi/water-pump';
 
-// import Chart from './Chart';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+
 const data = [{name: '0:00', gallons: 0}, {name: '3:00', gallons: 1}, {name: '6:00', gallons: 4}, {name: '9:00',  gallons: 6}, {name: '12:00', gallons: 9}]
 
 const watersourcetypes = {
@@ -40,9 +40,11 @@ export default class StatsPage extends React.Component {
             date: this.props.date,
             // gallons: null,
             gallons: getRandomInt(5, 9),
+            status: 'Water Not Running',
         } 
         // this.imageurl = watersourcetypes["Faucet"];
         this.imageurl = watersourcetypes[this.state.watersource];
+        this.today = (new Date()).toISOString().slice(0, 10);
 
     }
 
@@ -75,7 +77,7 @@ export default class StatsPage extends React.Component {
                     <Typography component="p" variant="h4">{this.state.gallons} Gallons</Typography>
                 </div>
 
-                <ResponsiveContainer width="95%" height={250}>
+                <ResponsiveContainer width="95%" height={230}>
                     <LineChart data={data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
                         <Line type="monotone" dataKey="gallons" stroke="#5abcd8" />
                         <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
@@ -84,6 +86,20 @@ export default class StatsPage extends React.Component {
                         <Tooltip />
                     </LineChart>
                 </ResponsiveContainer>
+
+                { this.today == this.state.date && this.state.status == "Water Not Running" &&
+                <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                    <Typography component="p"> Status: </Typography>
+                    <Typography component="p" style={{color: '#ff1744'}}> {this.state.status}</Typography>
+                </div>
+                }
+
+                { this.today == this.state.date && this.state.status != "Water Not Running" &&
+                    <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                        <Typography component="p"> Status: </Typography>
+                        <Typography component="p" style={{color: '#00e676'}}> {this.state.status}</Typography>
+                    </div>
+                }
 
                 {/* <h1>{`/r/reactjs`}</h1> */}
                 {/* <ul> */}

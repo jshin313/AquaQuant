@@ -10,7 +10,7 @@ import StatsPage from './StatsPage';
 
 const localStyle = makeStyles((theme) => ({
     fixedHeight: {
-        height: 500,
+        height: 510,
     }
 }));
 
