@@ -27,7 +27,7 @@ Thus, this platform hopes to provide a low cost water monitoring solution for th
 ```bash
 $ git clone --recurse-submodules -j8 https://github.com/jshin313/AquaQuant
 $ cd AquaQuant
-$ cd templates/static && npm install
+$ cd static && npm install
 $ cd node_modules/react-calendar-heatmap && npm install # Do this everytime npm install is run for some reason
 $ cd ../../
 $ npm run watch
