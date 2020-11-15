@@ -41,6 +41,8 @@ Browse to http://localhost:5000 to view the website
 ## Sensor Setup
 
 ## TODO
+* Make an add sensors functionality (add a faucet, shower, toilet)
+* Make a manual tracking option (manually tap on or off when you turn the shower on and off instead of having the sensors do it automatically)
 * For the hackathon lots of things that are hardcoded could be made more responsive and dynamic
 
 ## Credits
