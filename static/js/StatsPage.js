@@ -1,0 +1,98 @@
+/** The component inside Stats **/
+/** Handles the API request stuff **/
+
+import React from 'react';
+import axios from 'axios';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import Title from './Title';
+import clsx from 'clsx';
+
+// npm install --save-dev @iconify/react @iconify-icons/mdi
+import { Icon, InlineIcon } from '@iconify/react';
+import Toilet from '@iconify-icons/mdi/toilet';
+import Shower from '@iconify-icons/mdi/shower-head';
+import Faucet from '@iconify-icons/mdi/water-pump';
+
+// import Chart from './Chart';
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+const data = [{name: 'Page A', uv: 400, pv: 2400, amt: 2400}, {name: 'Page B', uv: 400, pv: 2400, amt: 2400}, {name: 'Page C', uv: 400, pv: 2400, amt: 2400}, {name: 'Page D', uv: 400, pv: 2400, amt: 2400}]
+
+const watersourcetypes = {
+    'Faucet': Faucet,
+    'Shower': Shower,
+    'Toilet': Toilet,
+};
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+export default class StatsPage extends React.Component {
+
+    constructor(props)
+    {
+        super(props);
+        this.state = {
+            posts: [],
+            watersource: this.props.watersource,
+            date: this.props.date,
+            // gallons: null,
+            gallons: getRandomInt(5, 9),
+        } 
+        // this.imageurl = watersourcetypes["Faucet"];
+        this.imageurl = watersourcetypes[this.state.watersource];
+
+    }
+
+    componentDidMount() {
+        axios.get(`http://www.reddit.com/r/reactjs.json`)
+            .then(res => {
+                const posts = res.data.data.children.map(obj => obj.data);
+                this.setState({ posts });
+            });
+    }
+
+    render() {
+        // let {classes} = this.props;
+        // const fixedHeightPaper = clsx(classes.paper, newHeight);
+
+        // console.log(this.imageurl);
+
+        return (
+            <div>
+                <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                    <Title >{this.props.title}</Title>
+                </div>
+                <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                    <Typography component="p" variant="h5" color="textSecondary">{this.props.watersource}</Typography>
+                </div>
+                <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                    <Icon icon={this.imageurl} height="80" />
+                </div>
+                <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                    <Typography component="p" variant="h4">{this.state.gallons} Gallons</Typography>
+                </div>
+
+                <ResponsiveContainer width="95%" height={250}>
+                    <LineChart data={data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
+                        <Line type="monotone" dataKey="uv" stroke="#8884d8" />
+                        <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+                        <XAxis dataKey="name" />
+                        <YAxis />
+                        <Tooltip />
+                    </LineChart>
+                </ResponsiveContainer>
+
+                {/* <h1>{`/r/reactjs`}</h1> */}
+                {/* <ul> */}
+                {/*     {this.state.posts.map(post => */}
+                {/*     <li key={post.id}>{post.title}</li> */}
+                {/*     )} */}
+                {/* </ul> */}
+                {/* <h1>{this.state.date}</h1> */}
+            </div>
+        );
+    }
+}

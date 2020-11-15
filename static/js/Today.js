@@ -15,11 +15,15 @@ const useStyles = makeStyles({
     },
 });
 
-export default function Today() {
+export default function Today(props) {
+    // const {watersource} = props;
+    // console.log(watersource);
+
     const classes = useStyles();
     var today = new Date();
     var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     var date = today.getDate() + " " + (months[today.getMonth()]) + ", " + today.getFullYear();
+
     return (
         <React.Fragment>
             <Title>Total Today</Title>

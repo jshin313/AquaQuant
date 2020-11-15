@@ -30,8 +30,8 @@ function Copyright() {
     return (
         <Typography variant="body2" color="textSecondary" align="center">
             {'Copyright © '}
-            <Link color="inherit" href="https://material-ui.com/">
-                Your Website
+            <Link color="inherit" href="https://jacobshin.com/">
+                Jacob Shin
             </Link>{' '}
             {new Date().getFullYear()}
             {'.'}
@@ -189,7 +189,6 @@ export default function Header() {
                 <Divider />
                 <List>{mainListItems}</List>
                 <Divider />
-                {/* <List>{secondaryListItems}</List> */}
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.appBarSpacer} />
@@ -197,9 +196,10 @@ export default function Header() {
 
                     <RoutesContainer styles={classes}/>
 
-                    <Box pt={4}>
-                        <Copyright />
-                    </Box>
+                    {/* TODO: This copyright notice gets overwritten by above router thing */}
+                    {/* <Box pt={4}> */}
+                    {/*     <Copyright /> */}
+                    {/* </Box> */}
                 </Container>
             </main>
         </div>

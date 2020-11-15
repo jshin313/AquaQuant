@@ -43,6 +43,7 @@ export default function HeatMap() {
         var cnt = Math.floor(4 * rando / (range + 1)) + 1;
         return {
             date: shiftDate(today, -index),
+            // TODO: Do stuff to use AJAX to request the below info from the api
             gallons: rando,
             count: cnt,
         };

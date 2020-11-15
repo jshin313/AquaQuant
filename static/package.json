@@ -26,6 +26,8 @@
         "@babel/plugin-proposal-object-rest-spread": "latest",
         "@babel/preset-env": "^7.12.1",
         "@babel/preset-react": "^7.12.5",
+        "@iconify-icons/mdi": "^1.0.20",
+        "@iconify/react": "^1.1.3",
         "@material-ui/core": "latest",
         "@material-ui/icons": "latest",
         "babel-loader": "latest",
@@ -46,6 +48,7 @@
         "react-router-dom": "^5.2.0",
         "react-tooltip": "3.8.1",
         "recharts": "^1.8.5",
-        "styled-components": "3.2.0"
+        "styled-components": "3.2.0",
+        "axios": "latest"
     }
 }
