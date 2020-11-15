@@ -11,9 +11,9 @@ app = Flask(__name__,
 def index():
     return render_template('index.html')
 
-# @app.route('/stats/<path:subpath>')
-# def stats(subpath):
-#     return render_template('index.html')
+@app.route('/stats/<path:subpath>')
+def stats(subpath):
+    return render_template('index.html')
 
 # Register api stuff I think
 api = Api(app)
