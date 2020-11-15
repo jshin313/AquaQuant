@@ -24,14 +24,12 @@ export default function Stats(props) {
 
     return (
         <Grid container spacing={2}>
-            {/* Chart */}
             <Grid item xs={12} md={4}>
                 <Paper className={fixedHeightPaper}>
                     {/* TODO: Put thing here */}
                     <StatsPage watersource="Faucet" title="Upstairs Bathroom Sink" date={date}/>
                 </Paper>
             </Grid>
-            {/* Stats for Today */}
             <Grid item xs={12} md={4}>
                 <Paper className={fixedHeightPaper}>
                     {/* TODO: Put thing here */}
