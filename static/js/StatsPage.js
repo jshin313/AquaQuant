@@ -17,7 +17,7 @@ import Faucet from '@iconify-icons/mdi/water-pump';
 
 // import Chart from './Chart';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
-const data = [{name: 'Page A', uv: 400, pv: 2400, amt: 2400}, {name: 'Page B', uv: 400, pv: 2400, amt: 2400}, {name: 'Page C', uv: 400, pv: 2400, amt: 2400}, {name: 'Page D', uv: 400, pv: 2400, amt: 2400}]
+const data = [{name: '0:00', gallons: 0}, {name: '3:00', gallons: 1}, {name: '6:00', gallons: 4}, {name: '9:00',  gallons: 6}, {name: '12:00', gallons: 9}]
 
 const watersourcetypes = {
     'Faucet': Faucet,
@@ -77,7 +77,7 @@ export default class StatsPage extends React.Component {
 
                 <ResponsiveContainer width="95%" height={250}>
                     <LineChart data={data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
-                        <Line type="monotone" dataKey="uv" stroke="#8884d8" />
+                        <Line type="monotone" dataKey="gallons" stroke="#5abcd8" />
                         <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
                         <XAxis dataKey="name" />
                         <YAxis />

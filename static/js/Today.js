@@ -34,7 +34,7 @@ export default function Today(props) {
                 on { date }
             </Typography>
             <div>
-                <Link color="primary" href="#" onClick={preventDefault}>
+                <Link color="primary" href={"/stats/" + today.toISOString().slice(0, 10)}>
                     More Details
                 </Link>
             </div>
