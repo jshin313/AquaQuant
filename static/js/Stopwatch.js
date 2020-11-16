@@ -10,6 +10,7 @@ import Button from '@material-ui/core/Button';
 import AlarmIcon from '@material-ui/icons/Alarm';
 import DeleteIcon from '@material-ui/icons/Delete';
 import SaveIcon from '@material-ui/icons/Save';
+import Typography from '@material-ui/core/Typography';
 
 export default class Stopwatch extends React.Component {
     constructor(props) {
@@ -71,6 +72,10 @@ export default class Stopwatch extends React.Component {
                 </div>
 
                 <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                    <Typography component="p" variant="h5" color="textSecondary">{runningTime.toFixed(2)} s</Typography>
+                </div>
+
+                <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                     <Button
                         style={{margin: "1rem"}}
                         variant="contained"
@@ -91,9 +96,6 @@ export default class Stopwatch extends React.Component {
                     </Button>
                 </div>
 
-                <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                    <p>{runningTime.toFixed(2)} ms</p>
-                </div>
             </div>
         );
     }
