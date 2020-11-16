@@ -34,7 +34,7 @@ export default class Stopwatch extends React.Component {
                 this.timer = setInterval(() => {
                     this.setState({ runningTime: (Date.now()/1000.0 - startTime)});
                 });
-                this.props.handler();
+                this.props.handler(!this.state.status);
             }
             return { status: !state.status };
         });
@@ -43,6 +43,7 @@ export default class Stopwatch extends React.Component {
     handleReset() {
         clearInterval(this.timer);
         this.setState({ runningTime: 0, status: false });
+        this.props.handler(false);
     }
 
     handleSave() {
@@ -50,6 +51,7 @@ export default class Stopwatch extends React.Component {
         //
         clearInterval(this.timer);
         this.setState({ runningTime: 0, status: false });
+        this.props.handler(false);
     }
 
     componentWillUnmount() {

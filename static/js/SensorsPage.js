@@ -47,8 +47,8 @@ export default class SensorsPage extends React.Component {
         this.changeStatus = this.changeStatus.bind(this)
     }
 
-    changeStatus() {
-        let newStatus = this.state.status == "Water Not Running" ? "Water Is Running" : "Water Not Running";
+    changeStatus(isOn) {
+        let newStatus = isOn ? "Water Is Running" : "Water Not Running";
         this.setState({
             status: newStatus
         })
