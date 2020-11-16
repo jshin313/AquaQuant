@@ -52,4 +52,5 @@ Browse to http://localhost:5000 to view the website
 * Calendar Heatmap: https://github.com/freeCodeCamp/react-calendar-heatmap/tree/fix/off-by-1-issues
 * Material UI: https://material-ui.com/
 * React Router Example: https://codesandbox.io/s/l9m3zrj4lq
+* Stopwatch Code: https://wsvincent.com/react-stopwatch/
 * Ideas: https://www.instructables.com/Low-Cost-Water-Flow-Sensor-and-Ambient-Display/ and https://www.reddit.com/r/arduino/comments/jhxr3r/can_you_use_ultrasonic_sensors_to_detect_water/

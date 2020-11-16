@@ -1,5 +1,6 @@
 /** Displays stopwatch stuff **/
 /** Inside the StatsPage component **/
+/** Stopwatch code largely from https://wsvincent.com/react-stopwatch/ **/
 
 import React from 'react';
 
