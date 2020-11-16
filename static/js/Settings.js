@@ -87,7 +87,7 @@ export default function InputAdornments() {
             id="outlined-adornment-amount"
             value={values.amount}
             onChange={handleChange('amount')}
-              startAdornment={<InputAdornment position="start">$   (Default: $0.0055)</InputAdornment>}
+              startAdornment={<InputAdornment position="start">   (Default: $0.0055)</InputAdornment>}
             labelWidth={180}
           />
         </FormControl>
