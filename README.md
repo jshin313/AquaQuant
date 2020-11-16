@@ -44,6 +44,7 @@ Browse to http://localhost:5000 to view the website
 * Make an add sensors functionality (add a faucet, shower, toilet)
 * Make a manual tracking option (manually tap on or off when you turn the shower on and off instead of having the sensors do it automatically)
 * For the hackathon lots of things that are hardcoded could be made more responsive and dynamic
+* Add SnackBar after clicking save/cancel buttons for the Stopwatch
 
 ## Credits
 * Dashboard Template: https://github.com/mui-org/material-ui/tree/master/docs/src/pages/getting-started/templates/dashboard
