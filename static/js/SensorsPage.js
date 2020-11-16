@@ -44,6 +44,14 @@ export default class SensorsPage extends React.Component {
         this.imageurl = watersourcetypes[this.state.watersource];
         this.today = (new Date()).toISOString().slice(0, 10);
 
+        this.changeStatus = this.changeStatus.bind(this)
+    }
+
+    changeStatus() {
+        let newStatus = this.state.status == "Water Not Running" ? "Water Is Running" : "Water Not Running";
+        this.setState({
+            status: newStatus
+        })
     }
 
     componentDidMount() {
@@ -58,8 +66,6 @@ export default class SensorsPage extends React.Component {
         // let {classes} = this.props;
         // const fixedHeightPaper = clsx(classes.paper, newHeight);
 
-        // console.log(this.imageurl);
-
         return (
             <div>
                 <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
@@ -73,7 +79,7 @@ export default class SensorsPage extends React.Component {
                 </div>
 
                 {/* Stopwatch stuff */}
-                <Stopwatch />
+                <Stopwatch handler={this.changeStatus}/>
 
                 {/* <Timer /> */}
 
