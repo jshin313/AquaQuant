@@ -1,5 +1,6 @@
 /** The component inside Stats **/
 /** Handles the API request stuff **/
+/** Unmount code from: https://www.robinwieruch.de/react-warning-cant-call-setstate-on-an-unmounted-component **/
 
 import React from 'react';
 import axios from 'axios';
@@ -46,14 +47,22 @@ export default class StatsPage extends React.Component {
         this.imageurl = watersourcetypes[this.state.watersource];
         this.today = (new Date()).toISOString().slice(0, 10);
 
+        this._isMounted = false;
     }
 
     componentDidMount() {
+        this._isMounted = true;
         axios.get(`http://www.reddit.com/r/reactjs.json`)
             .then(res => {
-                const posts = res.data.data.children.map(obj => obj.data);
-                this.setState({ posts });
+                if (this._isMounted) {
+                    const posts = res.data.data.children.map(obj => obj.data);
+                    this.setState({ posts });
+                }
             });
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false;
     }
 
     render() {
