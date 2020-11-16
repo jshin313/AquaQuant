@@ -4,9 +4,12 @@
 
 import React from 'react';
 
+import { spacing } from '@material-ui/system';
 import IconButton from '@material-ui/core/IconButton';
+import Button from '@material-ui/core/Button';
 import AlarmIcon from '@material-ui/icons/Alarm';
-
+import DeleteIcon from '@material-ui/icons/Delete';
+import SaveIcon from '@material-ui/icons/Save';
 
 export default class Stopwatch extends React.Component {
     constructor(props) {
@@ -17,6 +20,7 @@ export default class Stopwatch extends React.Component {
         };
         this.handleClick = this.handleClick.bind(this);
         this.handleReset = this.handleReset.bind(this);
+        this.handleSave = this.handleSave.bind(this);
     }
 
     handleClick() {
@@ -24,9 +28,9 @@ export default class Stopwatch extends React.Component {
             if (state.status) {
                 clearInterval(this.timer);
             } else {
-                const startTime = Date.now() - this.state.runningTime;
+                const startTime = Date.now()/1000.0 - this.state.runningTime;
                 this.timer = setInterval(() => {
-                    this.setState({ runningTime: Date.now() - startTime });
+                    this.setState({ runningTime: (Date.now()/1000.0 - startTime)});
                 });
             }
             return { status: !state.status };
@@ -38,6 +42,13 @@ export default class Stopwatch extends React.Component {
         this.setState({ runningTime: 0, status: false });
     }
 
+    handleSave() {
+        // TODO: Insert REST call here
+        //
+        clearInterval(this.timer);
+        this.setState({ runningTime: 0, status: false });
+    }
+
     componentWillUnmount() {
       clearInterval(this.timer);
     }
@@ -45,7 +56,6 @@ export default class Stopwatch extends React.Component {
     render() {
         const { status, runningTime } = this.state;
         const color = status ? "primary": "inherit";
-        // console.log()
 
         return (
             <div>
@@ -59,12 +69,31 @@ export default class Stopwatch extends React.Component {
                         }}/>
                     </IconButton>
                 </div>
+
                 <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                    <p>{runningTime} ms</p>
+                    <Button
+                        style={{margin: "1rem"}}
+                        variant="contained"
+                        color="secondary"
+                        startIcon={<DeleteIcon />}
+                        onClick={this.handleReset}
+                    >
+                        Cancel
+                    </Button>
+                    <Button
+                        style={{margin: "1rem"}}
+                        variant="contained"
+                        color="primary"
+                        startIcon={<SaveIcon />}
+                        onClick={this.handleSave}
+                    >
+                        Save
+                    </Button>
                 </div>
 
-                {/* <button onClick={this.handleClick}>{status ? 'Stop' : 'Start'}</button> */}
-                {/* <button onClick={this.handleReset}>Reset</button> */}
+                <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                    <p>{runningTime.toFixed(2)} ms</p>
+                </div>
             </div>
         );
     }
