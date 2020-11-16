@@ -4,6 +4,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import DashboardIcon from '@material-ui/icons/Dashboard';
+import SettingsIcon from '@material-ui/icons/Settings';
 import LocalDrink from '@material-ui/icons/LocalDrink';
 import Cloud from '@material-ui/icons/Cloud';
 import { Link } from "react-router-dom";
@@ -38,12 +39,20 @@ export const mainListItems = (
                 <ListItemText primary="Your Sensors" />
             </ListItem>
         </StyledLink>
-        <StyledLink to="/aboutwater">
+        {/* <StyledLink to="/aboutwater"> */}
+        {/*     <ListItem button> */}
+        {/*         <ListItemIcon> */}
+        {/*             <LocalDrink /> */}
+        {/*         </ListItemIcon> */}
+        {/*         <ListItemText primary="About Your Water" /> */}
+        {/*     </ListItem> */}
+        {/* </StyledLink> */}
+        <StyledLink to="/settings">
             <ListItem button>
                 <ListItemIcon>
-                    <LocalDrink />
+                    <SettingsIcon />
                 </ListItemIcon>
-                <ListItemText primary="About Your Water" />
+                <ListItemText primary="Setting" />
             </ListItem>
         </StyledLink>
     </div>

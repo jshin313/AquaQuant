@@ -8,6 +8,7 @@ app = Flask(__name__,
 @app.route('/')
 @app.route('/sensors')
 @app.route('/aboutwater')
+@app.route('/settings')
 def index():
     return render_template('index.html')
 

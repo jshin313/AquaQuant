@@ -6,6 +6,7 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 import Dashboard from './Dashboard';
 import Sensors from './Sensors';
 import Stats from './Stats';
+import Settings from './Settings.js';
 
 function RoutesContainer({ location, styles }) {
 
@@ -35,6 +36,12 @@ function RoutesContainer({ location, styles }) {
                                 path='/stats'
                                 render={(props) => (
                                     <Stats {...props} classes={styles} />
+                                )}
+                            />
+                            <Route
+                                path='/settings'
+                                render={(props) => (
+                                    <Settings {...props} classes={styles} />
                                 )}
                             />
                         </Switch>
