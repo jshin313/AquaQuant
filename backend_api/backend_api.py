@@ -1,7 +1,7 @@
 from flask import Response, request
 from flask_restful import reqparse, abort, Api, Resource
 from flask_sqlalchemy import SQLAlchemy
-# from db import db
+from exts import db
 
 class Day(Resource):
     def __init__(self):

@@ -1,4 +1,4 @@
-from db import db
+from .exts import db
 
 class Stats(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)

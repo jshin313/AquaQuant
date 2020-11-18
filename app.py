@@ -1,11 +1,27 @@
 from flask import Flask, render_template
 from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
+from exts import db
 
-app = Flask(__name__,
+def register_extensions(app):
+    db.init_app(app)
+
+def create_app():
+    # Register api stuff I think
+    app = Flask(__name__,
             static_folder = './public',
             template_folder="./static")
+    #Load this config object for development mode
+    app.config.from_object('configurations.DevelopmentConfig')
 
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+    register_extensions(app)
+    return app
+
+
+app = create_app()
 
 @app.route('/')
 @app.route('/sensors')
@@ -18,7 +34,6 @@ def index():
 def stats(subpath):
     return render_template('index.html')
 
-# Register api stuff I think
 api = Api(app)
 
 from backend_api.backend_api import Day, Year, On
@@ -26,10 +41,7 @@ api.add_resource(Day, '/api/day', endpoint='day')
 api.add_resource(Year, '/api/year', endpoint='year')
 api.add_resource(On, '/api/on', endpoint='on')
 
-#Load this config object for development mode
-app.config.from_object('configurations.DevelopmentConfig')
 
 if __name__ == '__main__':
-    from db import db
-    db.create_all()
     app.run()
+    db.create_all()
