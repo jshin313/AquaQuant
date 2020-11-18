@@ -41,7 +41,6 @@ class Day(Resource):
 
         data = json.dumps(stats, cls=AlchemyEncoder)
 
-
         return  {
             'data': data,
         }, 200

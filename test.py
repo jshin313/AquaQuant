@@ -13,9 +13,15 @@ payload2 = {
     })
 }
 
+# Get request test for Day
 r = requests.get('http://localhost:5000/api/day', data=payload1).json()
-# r = requests.post('http://localhost:5000/api/day', data=payload2).json()
+print(" --- GET TEST for Day --- ")
+for row in json.loads(r['data']):
+    print(row)
+print()
 
-# print(r['date'])
-# print(json.loads(r['data'])['start_time'])
+# Post request test for Day
+print(" --- POST TEST for Day --- ")
+r = requests.post('http://localhost:5000/api/day', data=payload2).json()
 print(r)
+print()
