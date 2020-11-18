@@ -26,9 +26,11 @@ class Day(Resource):
         data = json.loads(args['data'])
 
         stats = Stats(date=date, start_time=data['start_time'], end_time=data['end_time'], water_source=data['watersource'])
+
         # print(stats)
-        db.session.add(stats)
-        db.session.commit()
+        if Stats.query.filter_by(date=date, start_time=data['start_time'], end_time=data['end_time'], water_source=data['watersource']) is None:
+            db.session.add(stats)
+            db.session.commit()
 
         return  {
             'date': date,
