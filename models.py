@@ -1,11 +1,11 @@
-from .exts import db
+from exts import db
 
 class Stats(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     date = db.Column(db.String(64))
-    starting_time = db.Column(db.String(64))
-    ending_time = db.Column(db.String(64))
-    watersource = db.Column(db.String(64))
+    start_time = db.Column(db.String(64))
+    end_time = db.Column(db.String(64))
+    water_source = db.Column(db.String(64))
 
     def __repr__(self):
-        return '<Stats {} {} {} {}>'.format(self.date, self.starting_time, self.ending_time, self.watersource)
+        return '<Stats {} {} {} {}>'.format(self.date, self.start_time, self.end_time, self.water_source)

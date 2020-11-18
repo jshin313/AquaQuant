@@ -1,10 +1,10 @@
 import requests, json
 
 payload = {
-    'date': '11-17-2020',
+    'date': '10-14-2020',
     'data': json.dumps({
-        'start_time': 'testing',
-        'end_time': 'testing',
+        'start_time': '17:00:20',
+        'end_time': '17:00:59',
         'watersource': 'faucet',
     })
 }
@@ -12,4 +12,4 @@ payload = {
 r = requests.post('http://localhost:5000/api/day', data=payload).json()
 
 print(r['date'])
-print(json.loads(r['data'])['start_time'])
+print(r['data']['start_time'])

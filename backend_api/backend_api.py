@@ -2,6 +2,8 @@ from flask import Response, request
 from flask_restful import reqparse, abort, Api, Resource
 from flask_sqlalchemy import SQLAlchemy
 from exts import db
+from models import Stats
+import json
 
 class Day(Resource):
     def __init__(self):
@@ -20,11 +22,15 @@ class Day(Resource):
     # Create an entry in database for a specific time frame
     def post(self):
         args = self.reqparse.parse_args()
-        print(args)
+        date = args['date']
+        data = json.loads(args['data'])
+
+        stats = Stats(date=date, start_time=data['start_time'], end_time=data['end_time'], water_source=data['watersource'])
+        print(stats)
 
         return  {
-            'date': args['date'],
-            'data': args['data'],
+            'date': date,
+            'data': data,
         }, 200
 
 class Year(Resource):
