@@ -33,6 +33,7 @@ $ cd ../../
 $ npm run watch
 $ cd AquaQuant # In new terminal
 $ virtualenv -v venv && source venv/bin/activate # Optional
+$ pip3 install -r requirements.txt
 $ python3 run.py
 ```
 
