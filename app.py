@@ -1,15 +1,10 @@
 from flask import Flask, render_template
 from flask_restful import Api
-from flask_restful import reqparse
-from flask_sqlalchemy import SQLAlchemy # new
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__,
             static_folder = './public',
             template_folder="./static")
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
 
 
 @app.route('/')
@@ -26,10 +21,15 @@ def stats(subpath):
 # Register api stuff I think
 api = Api(app)
 
-from backend_api.backend_api import Day, Year
+from backend_api.backend_api import Day, Year, On
 api.add_resource(Day, '/api/day', endpoint='day')
 api.add_resource(Year, '/api/year', endpoint='year')
+api.add_resource(On, '/api/on', endpoint='on')
 
 #Load this config object for development mode
 app.config.from_object('configurations.DevelopmentConfig')
-app.run()
+
+if __name__ == '__main__':
+    from db import db
+    db.create_all()
+    app.run()
