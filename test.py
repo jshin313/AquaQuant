@@ -9,7 +9,7 @@ payload2 = {
         'date': '10-14-2020',
         'start_time': '17:00:20',
         'end_time': '17:00:59',
-        'watersource': 'faucet',
+        'water_source': 'faucet',
     })
 }
 
@@ -29,3 +29,16 @@ print()
 # Get request test for Year
 r = requests.get('http://localhost:5000/api/year', data={'year': '2020'}).json()
 print(r)
+
+# Get request test for On
+r = requests.get('http://localhost:5000/api/on', data={'water_source': 'faucet'}).json()
+print(r)
+
+# POST request test for On
+r = requests.post('http://localhost:5000/api/on', data={'water_source': 'faucet', 'on':'True'}).json()
+print(r)
+
+# Get request test for On
+r = requests.get('http://localhost:5000/api/on', data={'water_source': 'faucet'}).json()
+print(r)
+

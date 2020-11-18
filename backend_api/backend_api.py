@@ -56,9 +56,9 @@ class Day(Resource):
 
 
         # Prevent duplicate entrires
-        if Stats.query.filter_by(date=data['date'], start_time=data['start_time'], end_time=data['end_time'], water_source=data['watersource']).first() is None:
+        if Stats.query.filter_by(date=data['date'], start_time=data['start_time'], end_time=data['end_time'], water_source=data['water_source']).first() is None:
             # Add entry if not duplicate
-            stats = Stats(date=data['date'], start_time=data['start_time'], end_time=data['end_time'], water_source=data['watersource'])
+            stats = Stats(date=data['date'], start_time=data['start_time'], end_time=data['end_time'], water_source=data['water_source'])
             db.session.add(stats)
             db.session.commit()
 
@@ -104,17 +104,37 @@ class Year(Resource):
         }, 200
 
 class On(Resource):
+    is_on = {
+        'faucet': False,
+        'toilet': False,
+        'shower': False,
+    }
     def __init__(self):
         self.reqparse = reqparse.RequestParser()
-        self.reqparse.add_argument('on', type = bool, required=True)
-        self.reqparse.add_argument('watersource', type = string, required=True)
-        super(Year, self).__init__()
+        self.reqparse.add_argument('on', type = bool)
+        self.reqparse.add_argument('water_source', type=str, required=True)
+        super(On, self).__init__()
+
+    def get(self):
+        args = self.reqparse.parse_args()
+        water_source = args['water_source']
+        print(water_source)
+        return  {
+            'water_source': args['water_source'],
+            'on': self.is_on[water_source],
+        }, 200
 
     # Tell the UI that water source is on or off
     def post(self):
         args = self.reqparse.parse_args()
+        if args['on'] == True:
+            self.is_on[args['water_source']] = True
+        else:
+            self.is_on[args['water_source']] = False
+
+            
         return  {
-            args['on'],
-            args['watersource'],
+            'water_source': args['water_source'],
+            'on': args['on'],
         }, 200
 
