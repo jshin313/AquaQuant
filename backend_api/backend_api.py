@@ -26,7 +26,9 @@ class Day(Resource):
         data = json.loads(args['data'])
 
         stats = Stats(date=date, start_time=data['start_time'], end_time=data['end_time'], water_source=data['watersource'])
-        print(stats)
+        # print(stats)
+        db.session.add(stats)
+        db.session.commit()
 
         return  {
             'date': date,

@@ -44,4 +44,5 @@ api.add_resource(On, '/api/on', endpoint='on')
 
 if __name__ == '__main__':
     app.run()
-    db.create_all()
+    with app.app_context():
+        db.create_all()

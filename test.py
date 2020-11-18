@@ -11,5 +11,6 @@ payload = {
 
 r = requests.post('http://localhost:5000/api/day', data=payload).json()
 
-print(r['date'])
+# print(r['date'])
+# print(json.loads(r['data'])['start_time'])
 print(r['data']['start_time'])
