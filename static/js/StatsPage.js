@@ -96,19 +96,19 @@ export default class StatsPage extends React.Component {
                     </LineChart>
                 </ResponsiveContainer>
 
-                { this.today == this.state.date && this.state.status == "Water Not Running" &&
-                <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                    <Typography component="p"> Status: </Typography>
-                    <Typography component="p" style={{color: '#ff1744'}}> {this.state.status}</Typography>
-                </div>
-                }
+                {/* { this.today == this.state.date && this.state.status == "Water Not Running" && */}
+                {/* <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}> */}
+                {/*     <Typography component="p"> Status: </Typography> */}
+                {/*     <Typography component="p" style={{color: '#ff1744'}}> {this.state.status}</Typography> */}
+                {/* </div> */}
+                {/* } */}
 
-                { this.today == this.state.date && this.state.status != "Water Not Running" &&
-                    <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                        <Typography component="p"> Status: </Typography>
-                        <Typography component="p" style={{color: '#00e676'}}> {this.state.status}</Typography>
-                    </div>
-                }
+                {/* { this.today == this.state.date && this.state.status != "Water Not Running" && */}
+                {/*     <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}> */}
+                {/*         <Typography component="p"> Status: </Typography> */}
+                {/*         <Typography component="p" style={{color: '#00e676'}}> {this.state.status}</Typography> */}
+                {/*     </div> */}
+                {/* } */}
 
                 {/* <h1>{`/r/reactjs`}</h1> */}
                 {/* <ul> */}
