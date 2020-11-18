@@ -25,3 +25,7 @@ print(" --- POST TEST for Day --- ")
 r = requests.post('http://localhost:5000/api/day', data=payload2).json()
 print(r)
 print()
+
+# Get request test for Year
+r = requests.get('http://localhost:5000/api/year', data={'year': '2020'}).json()
+print(r)

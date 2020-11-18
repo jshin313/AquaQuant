@@ -4,8 +4,12 @@ from flask_sqlalchemy import SQLAlchemy
 from exts import db
 from models import Stats
 import json
+from dateutil import rrule
+import math
+from datetime import datetime
 
 from sqlalchemy.ext.declarative import DeclarativeMeta
+from backend_api.convert import convert_to_gallons
 
 # Code for AlchemyEncoder from https://stackoverflow.com/questions/5022066/how-to-serialize-sqlalchemy-result-to-json
 class AlchemyEncoder(json.JSONEncoder):
@@ -50,11 +54,11 @@ class Day(Resource):
         args = self.reqparse.parse_args()
         data = json.loads(args['data'])
 
-        stats = Stats(date=data['date'], start_time=data['start_time'], end_time=data['end_time'], water_source=data['watersource'])
 
         # Prevent duplicate entrires
         if Stats.query.filter_by(date=data['date'], start_time=data['start_time'], end_time=data['end_time'], water_source=data['watersource']).first() is None:
             # Add entry if not duplicate
+            stats = Stats(date=data['date'], start_time=data['start_time'], end_time=data['end_time'], water_source=data['watersource'])
             db.session.add(stats)
             db.session.commit()
 
@@ -70,8 +74,33 @@ class Year(Resource):
 
     def get(self):
         args = self.reqparse.parse_args()
+
+        # days_in_year = Stats.query.filter(Stats.date.endswith(args['year'])).all()
+        # print(days_in_year)
+
+        a = '01-01-' + args['year']
+        b = '12-31-' + args['year']
+
+        return_dict = {}
+
+        for dt in rrule.rrule(rrule.DAILY, dtstart=datetime.strptime(a, '%m-%d-%Y'), until=datetime.strptime(b, '%m-%d-%Y')):
+            date = dt.strftime('%m-%d-%Y')
+
+            total_gallons_in_day = 0.0
+            for row in Stats.query.filter_by(date=date).all():
+                total_gallons_in_day+=convert_to_gallons(row.start_time, row.end_time, row.water_source)
+
+            # If there is no date availabe then skip
+            if (math.isclose(total_gallons_in_day, 0.0, rel_tol=1e-3)):
+                continue
+
+            return_dict[date] = total_gallons_in_day
+
+            print("Total Gallons in day " + str(total_gallons_in_day))
+
         return  {
             'year': args['year'],
+            'data': return_dict,
         }, 200
 
 class On(Resource):
