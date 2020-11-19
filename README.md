@@ -11,17 +11,21 @@ Furthermore, currently there is also a lack of water monitoring solutions offere
 
 Thus, this platform hopes to provide a low cost water monitoring solution for the everyday consumer. Also, by utilizing low cost (Internet of Things) IoT sensors, you can get a detailed breakdown of exactly how much water each faucet, shower, and toilet uses in a given day, week, or month, unlike most commercially available water monitoring products.
 
+## How it Works
+The IoT sensors work by detecting vibrations within the water pipes since whenever there is water flowing, there will be vibrations. The sensors then times how long these vibrations last and use this along with the flow rate of the water source to calculate the total gallons used. This allows for non-invasive sensors and very easy installation. While a hall effect sensor or turbine sensor would give accurate flow rate readings, our unique vibration sensors don't require any disassembly of pipes or plumbing knowledge, which makes it much more friendly to the average consumer. Instead of having to disassemble your whole sink and finding out what kind of pipe adapters to buy to fit your sensor, our IoT sensor simply attaches to the outside of the pipe allowing for quick and easy installation. Vibration sensors (\$1 per sensor) are also much cheaper than traditional turbine sensors (\$10 - \$30).
+
+The IoT sensor utilizes cheap (\$3) WiFi modules and a piezo vibration sensor that converts mechanical energy to electrical signals in order to communicate via a custom built REST API. The dashboard then allows for monitoring exactly which devices are currently on and how water usage changes over time.
+
 [A 2020 Philly Codefest Submission](https://philly-codefest-2020.devpost.com/)
 
-## Features
-* Integration with cheap IoT sensors to gauge water usage around the house (sinks, toilets, showers, etc.)
-* Tips on how and when to conserve water usage using data like weather and past trends in water usage
-* Information about where your water quality and where it comes from * 
+<!-- ## Features -->
+<!-- * Integration with cheap IoT sensors to gauge water usage around the house (sinks, toilets, showers, etc.) -->
+<!-- * Information about where your water quality and where it comes from * --> 
+<!-- * Tips on how and when to conserve water usage using data like weather and past trends in water usage -->
 <!-- * Estimate your monthly stormwater surcharge * -->
 
-\* Only available for Philly
+<!-- \* Only available for Philly -->
 
-## How it Works
 
 ## Code Installation
 ```bash
@@ -40,13 +44,14 @@ $ python3 run.py
 Browse to http://localhost:5000 to view the website
 
 ## Sensor Setup
+Simply use mastic or putty clay to attach the vibration sensor to the outside of the water source's pipe.
 
 ## TODO
-* Make an add sensors functionality (add a faucet, shower, toilet)
+<!-- * Make an add sensors functionality (add a faucet, shower, toilet) -->
 * Add estimated cost analysis
 * For the hackathon lots of things that are hardcoded could be made more responsive and dynamic
 * Add SnackBar after clicking save/cancel buttons for the Stopwatch
-* Add authentication and security stuff
+* Add authentication (login accounts) and security stuff
 
 ## Credits
 * Dashboard Template: https://github.com/mui-org/material-ui/tree/master/docs/src/pages/getting-started/templates/dashboard
