@@ -25,10 +25,6 @@ const watersourcetypes = {
     'Toilet': Toilet,
 };
 
-function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
 export default class SensorsPage extends React.Component {
 
     constructor(props)
@@ -57,13 +53,26 @@ export default class SensorsPage extends React.Component {
 
     componentDidMount() {
         this.timer = setInterval(() => {
-            var faucetstatus = document.getElementById("faucet").innerHTML;
-            var showerstatus = document.getElementById("shower").innerHTML;
-            var toiletstatus = document.getElementById("toilet").innerHTML;
+            const on_status = {
+                'faucet': document.getElementById("faucet").innerHTML,
+                'shower': document.getElementById("shower").innerHTML,
+                'toilet': document.getElementById("toilet").innerHTML,
+            }
+            // DEBUG stuff
+            console.log("Faucet: " + on_status['faucet']);
+            console.log("Shower: " + on_status['shower']);
+            console.log("Toilet: " + on_status['toilet']);
+           
+            this.setState({
+                on_iot: on_status[this.props.watersource.toLowerCase()] == 'true',
+            });
 
-            console.log("Faucet: " + faucetstatus);
-            console.log("Shower: " + showerstatus);
-            console.log("Toilet: " + toiletstatus);
+            if (this.state.on_iot)
+            {
+                this.changeStatus(true);
+            }
+            
+            console.log(this.state.on_iot);
 
         }, 1000);
     }

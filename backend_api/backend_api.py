@@ -112,7 +112,7 @@ class Year(Resource):
 class On(Resource):
     def __init__(self):
         self.reqparse = reqparse.RequestParser()
-        self.reqparse.add_argument('on', type = bool)
+        self.reqparse.add_argument('on', type = str)
         self.reqparse.add_argument('water_source', type=str, required=True)
         super(On, self).__init__()
 
@@ -128,12 +128,12 @@ class On(Resource):
     # Tell the UI that water source is on or off
     def post(self):
         args = self.reqparse.parse_args()
-        if args['on'] == True:
+        print("args['on']: " + str(args['on']))
+        if args['on'] == 'True':
             is_on[args['water_source']] = True
         else:
             is_on[args['water_source']] = False
 
-            
         return  {
             'water_source': args['water_source'],
             'on': args['on'],
