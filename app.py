@@ -64,9 +64,7 @@ def faucet():
     #infinite loop of magical random numbers
     print("Making random numbers")
     while not thread_stop_event.isSet():
-        number = round(random()*10, 3)
-        print(number)
-        socketio.emit('faucet', {'number': number}, namespace='/test')
+        socketio.emit('faucet', {'on': is_on['faucet']}, namespace='/test')
         socketio.sleep(0.9)
 
 def shower():
@@ -77,9 +75,7 @@ def shower():
     #infinite loop of magical random numbers
     print("Making random numbers")
     while not thread_stop_event.isSet():
-        number = round(random()*10, 3)
-        print(number)
-        socketio.emit('shower', {'number': number}, namespace='/test')
+        socketio.emit('shower', {'on': is_on['shower']}, namespace='/test')
         socketio.sleep(0.9)
 
 def toilet():
@@ -92,7 +88,7 @@ def toilet():
     while not thread_stop_event.isSet():
         number = round(random()*10, 3)
         print(number)
-        socketio.emit('toilet', {'number': number}, namespace='/test')
+        socketio.emit('toilet', {'on': is_on['toilet']}, namespace='/test')
         socketio.sleep(0.9)
 
 @socketio.on('connect', namespace='/test')

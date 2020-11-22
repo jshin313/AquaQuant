@@ -32,25 +32,19 @@
 
           //receive details from server
           socket.on('faucet', function(msg) {
-            //console.log("Received number" + msg.number);
-            //console.log(window.datavar);
-            $("#faucet").html(msg.number.toString());
+            $("#faucet").html(msg.on.toString());
 
           });
 
           //receive details from server
           socket.on('shower', function(msg) {
-            //console.log("Received number" + msg.number);
-            //console.log(window.datavar);
-            $("#shower").html(msg.number.toString());
+            $("#shower").html(msg.on.toString());
 
           });
 
           //receive details from server
           socket.on('toilet', function(msg) {
-            //console.log("Received number" + msg.number);
-            //console.log(window.datavar);
-            $("#toilet").html(msg.number.toString());
+            $("#toilet").html(msg.on.toString());
 
           });
 
