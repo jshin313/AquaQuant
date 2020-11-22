@@ -56,11 +56,6 @@ def faucet():
     socketio.emit('shower', {'on': is_on['shower']}, namespace='/test')
     socketio.emit('toilet', {'on': is_on['toilet']}, namespace='/test')
 
-# # Handler for a message recieved over 'connect' channel
-# @socketio.on('faucet_status')
-# def faucet_status():
-#     emit('faucet',  {'on': is_on['faucet']})
-
 if __name__ == '__main__':
     socketio.run(app)
     with app.app_context():
