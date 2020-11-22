@@ -67,4 +67,5 @@ Simply use mastic or putty clay to attach the vibration sensor to the outside of
 * Material UI: https://material-ui.com/
 * React Router Example: https://codesandbox.io/s/l9m3zrj4lq
 * Stopwatch Code: https://wsvincent.com/react-stopwatch/
+* Async SocketIO stuff: https://www.shanelynn.ie/asynchronous-updates-to-a-webpage-with-flask-and-socket-io/
 * Ideas: https://www.instructables.com/Low-Cost-Water-Flow-Sensor-and-Ambient-Display/ and https://www.reddit.com/r/arduino/comments/jhxr3r/can_you_use_ultrasonic_sensors_to_detect_water/
