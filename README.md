@@ -1,6 +1,6 @@
 # AquaQuant: A Cheap, Easy to Use Water Usage Quantifier
 
-AquaQuant is a water utilization quantification/tracking platform that aims to help people conserve more water.
+AquaQuant is a water utilization quantification/tracking platform that aims to help people conserve more water. Use IoT sensors to automatically track your water usage or use the platform to just manually keep track of your usage.
 
 ## Background
 As droughts become more [common](https://climate.nasa.gov/news/2881/earths-freshwater-future-extremes-of-flood-and-drought/) and fresh water becomes more scarce, it is now more important than ever before to manage our water carefully. 
