@@ -52,6 +52,8 @@ Browse to http://localhost:5000 to view the website
 ## Sensor Setup
 Simply use mastic or putty clay to attach the vibration sensor to the outside of the water source's pipe.
 
+![Circuit Picture](./circuit.png)
+
 ## TODO
 <!-- * Make an add sensors functionality (add a faucet, shower, toilet) -->
 * Add estimated cost analysis

@@ -59,9 +59,9 @@ export default class SensorsPage extends React.Component {
                 'toilet': document.getElementById("toilet").innerHTML,
             }
             // DEBUG stuff
-            console.log("Faucet: " + on_status['faucet']);
-            console.log("Shower: " + on_status['shower']);
-            console.log("Toilet: " + on_status['toilet']);
+            // console.log("Faucet: " + on_status['faucet']);
+            // console.log("Shower: " + on_status['shower']);
+            // console.log("Toilet: " + on_status['toilet']);
            
             this.setState({
                 on_iot: on_status[this.props.watersource.toLowerCase()] == 'true',
@@ -72,7 +72,7 @@ export default class SensorsPage extends React.Component {
                 this.changeStatus(true);
             }
             
-            console.log(this.state.on_iot);
+            // console.log(this.state.on_iot);
 
         }, 1000);
     }
