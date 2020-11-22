@@ -1,5 +1,7 @@
 # AquaQuant: A Cheap, Easy to Use Water Usage Quantifier
 
+https://aquaquant.herokuapp.com/
+
 AquaQuant is a water utilization quantification/tracking platform that aims to help people conserve more water. Use IoT sensors to automatically track your water usage or use the platform to just manually keep track of your usage.
 
 ## Background
