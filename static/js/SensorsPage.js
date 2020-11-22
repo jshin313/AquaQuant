@@ -57,9 +57,13 @@ export default class SensorsPage extends React.Component {
 
     componentDidMount() {
         this.timer = setInterval(() => {
-            var datavar = document.getElementById("datavar").innerHTML;
+            var faucetstatus = document.getElementById("faucet").innerHTML;
+            var showerstatus = document.getElementById("shower").innerHTML;
+            var toiletstatus = document.getElementById("toilet").innerHTML;
 
-            console.log(datavar);
+            console.log("Faucet: " + faucetstatus);
+            console.log("Shower: " + showerstatus);
+            console.log("Toilet: " + toiletstatus);
 
         }, 1000);
     }

@@ -51,7 +51,9 @@ api.add_resource(On, '/api/on', endpoint='on')
 socketio = SocketIO(app, async_mode=None, logger=True, engineio_logger=True)
 # socketio = SocketIO(app, cors_allowed_origins="*")
 
-thread = Thread()
+thread1 = Thread()
+thread2 = Thread()
+thread3 = Thread()
 thread_stop_event = Event()
 
 def faucet():
@@ -64,19 +66,55 @@ def faucet():
     while not thread_stop_event.isSet():
         number = round(random()*10, 3)
         print(number)
-        socketio.emit('newnumber', {'number': number}, namespace='/test')
+        socketio.emit('faucet', {'number': number}, namespace='/test')
+        socketio.sleep(0.9)
+
+def shower():
+    """
+    Generate a random number every 1 second and emit to a socketio instance (broadcast)
+    Ideally to be run in a separate thread?
+    """
+    #infinite loop of magical random numbers
+    print("Making random numbers")
+    while not thread_stop_event.isSet():
+        number = round(random()*10, 3)
+        print(number)
+        socketio.emit('shower', {'number': number}, namespace='/test')
+        socketio.sleep(0.9)
+
+def toilet():
+    """
+    Generate a random number every 1 second and emit to a socketio instance (broadcast)
+    Ideally to be run in a separate thread?
+    """
+    #infinite loop of magical random numbers
+    print("Making random numbers")
+    while not thread_stop_event.isSet():
+        number = round(random()*10, 3)
+        print(number)
+        socketio.emit('toilet', {'number': number}, namespace='/test')
         socketio.sleep(0.9)
 
 @socketio.on('connect', namespace='/test')
 def test_connect():
     # need visibility of the global thread object
-    global thread
+    global thread1
+    global thread2
+    global thread3
     print('Client connected')
 
     #Start the random number generator thread only if the thread has not been started before.
-    if not thread.isAlive():
+    if not thread1.isAlive():
         print("Starting Thread")
-        thread = socketio.start_background_task(faucet)
+        thread1 = socketio.start_background_task(faucet)
+
+    if not thread2.isAlive():
+        print("Starting Thread")
+        thread2 = socketio.start_background_task(shower)
+
+    if not thread3.isAlive():
+        print("Starting Thread")
+        thread3 = socketio.start_background_task(toilet)
 
 
 # # Handler for a message recieved over 'connect' channel
