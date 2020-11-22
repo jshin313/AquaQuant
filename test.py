@@ -32,11 +32,11 @@ r = requests.get('http://localhost:5000/api/year', data={'year': '2020'}).json()
 print(r)
 print()
 
-# Get request test for On
-print(" --- GET TEST for On --- ")
-r = requests.get('http://localhost:5000/api/on', data={'water_source': 'faucet'}).json()
-print(r)
-print()
+# # Get request test for On
+# print(" --- GET TEST for On --- ")
+# r = requests.get('http://localhost:5000/api/on', data={'water_source': 'faucet'}).json()
+# print(r)
+# print()
 
 # POST request test for On
 print(" --- POST TEST for On --- ")
@@ -44,9 +44,9 @@ r = requests.post('http://localhost:5000/api/on', data={'water_source': 'faucet'
 print(r)
 print()
 
-# Get request test for On
-print(" --- GET TEST for On --- ")
-r = requests.get('http://localhost:5000/api/on', data={'water_source': 'faucet'}).json()
-print(r)
-print()
+# # Get request test for On
+# print(" --- GET TEST for On --- ")
+# r = requests.get('http://localhost:5000/api/on', data={'water_source': 'faucet'}).json()
+# print(r)
+# print()
 

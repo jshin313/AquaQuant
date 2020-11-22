@@ -1,7 +1,14 @@
+from eventlet import monkey_patch as monkey_patch
+monkey_patch()
 from flask import Flask, render_template
 from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
+from random import random
 from exts import db
+from flask_socketio import SocketIO, emit
+
+from time import sleep
+from threading import Thread, Event
 
 def register_extensions(app):
     db.init_app(app)
@@ -36,13 +43,48 @@ def stats(subpath):
 
 api = Api(app)
 
-from backend_api.backend_api import Day, Year, On
+from backend_api.backend_api import Day, Year, On, is_on
 api.add_resource(Day, '/api/day', endpoint='day')
 api.add_resource(Year, '/api/year', endpoint='year')
 api.add_resource(On, '/api/on', endpoint='on')
 
+socketio = SocketIO(app, async_mode=None, logger=True, engineio_logger=True)
+# socketio = SocketIO(app, cors_allowed_origins="*")
+
+thread = Thread()
+thread_stop_event = Event()
+
+def faucet():
+    """
+    Generate a random number every 1 second and emit to a socketio instance (broadcast)
+    Ideally to be run in a separate thread?
+    """
+    #infinite loop of magical random numbers
+    print("Making random numbers")
+    while not thread_stop_event.isSet():
+        number = round(random()*10, 3)
+        print(number)
+        socketio.emit('newnumber', {'number': number}, namespace='/test')
+        socketio.sleep(0.9)
+
+@socketio.on('connect', namespace='/test')
+def test_connect():
+    # need visibility of the global thread object
+    global thread
+    print('Client connected')
+
+    #Start the random number generator thread only if the thread has not been started before.
+    if not thread.isAlive():
+        print("Starting Thread")
+        thread = socketio.start_background_task(faucet)
+
+
+# # Handler for a message recieved over 'connect' channel
+# @socketio.on('faucet_status')
+# def faucet_status():
+#     emit('faucet',  {'on': is_on['faucet']})
 
 if __name__ == '__main__':
-    app.run()
+    socketio.run(app)
     with app.app_context():
         db.create_all()

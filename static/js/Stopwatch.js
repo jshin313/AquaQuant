@@ -17,7 +17,7 @@ export default class Stopwatch extends React.Component {
         super(props);
         this.state = {
             status: false,
-            runningTime: 0
+            runningTime: 0,
         };
         this.handleClick = this.handleClick.bind(this);
         this.handleReset = this.handleReset.bind(this);
@@ -25,33 +25,39 @@ export default class Stopwatch extends React.Component {
     }
 
     handleClick() {
-        this.setState(state => {
-            if (state.status) {
-                clearInterval(this.timer);
-                this.props.handler();
-            } else {
-                const startTime = Date.now()/1000.0 - this.state.runningTime;
-                this.timer = setInterval(() => {
-                    this.setState({ runningTime: (Date.now()/1000.0 - startTime)});
-                });
-                this.props.handler(!this.state.status);
-            }
-            return { status: !state.status };
-        });
+        if (!this.props.on_iot) {
+            this.setState(state => {
+                if (state.status) {
+                    clearInterval(this.timer);
+                    this.props.handler();
+                } else {
+                    const startTime = Date.now()/1000.0 - this.state.runningTime;
+                    this.timer = setInterval(() => {
+                        this.setState({ runningTime: (Date.now()/1000.0 - startTime)});
+                    });
+                    this.props.handler(!this.state.status);
+                }
+                return { status: !state.status };
+            });
+        }
     }
 
     handleReset() {
-        clearInterval(this.timer);
-        this.setState({ runningTime: 0, status: false });
-        this.props.handler(false);
+        if (!this.props.on_iot) {
+            clearInterval(this.timer);
+            this.setState({ runningTime: 0, status: false });
+            this.props.handler(false);
+        }
     }
 
     handleSave() {
         // TODO: Insert REST call here
         //
-        clearInterval(this.timer);
-        this.setState({ runningTime: 0, status: false });
-        this.props.handler(false);
+        if (!this.props.on_iot) {
+            clearInterval(this.timer);
+            this.setState({ runningTime: 0, status: false });
+            this.props.handler(false);
+        }
     }
 
     componentWillUnmount() {

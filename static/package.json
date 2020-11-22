@@ -43,12 +43,15 @@
     },
     "dependencies": {
         "@babel/core": "latest",
+        "axios": "latest",
         "history": "^4.7.2",
         "react-calendar-heatmap": "file:./react-calendar-heatmap",
         "react-router-dom": "^5.2.0",
         "react-tooltip": "3.8.1",
         "recharts": "^1.8.5",
+        "socket.io-client": "^3.0.3",
         "styled-components": "3.2.0",
-        "axios": "latest"
+        "window": "^4.2.7",
+        "window-or-global": "^1.0.1"
     }
 }

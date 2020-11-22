@@ -131,12 +131,13 @@ const WhiteTextTypography = withStyles({
   }
 })(Typography);
 
-export default function Header() {
+export default function Header(props) {
     const classes = useStyles();
     const [open, setOpen] = React.useState(true);
     const toggleDrawer = () => {
         setOpen(!open);
     };
+    // console.log(props.datavar);
 
     return (
         <ThemeProvider theme={theme}>
@@ -194,7 +195,7 @@ export default function Header() {
                 <div className={classes.appBarSpacer} />
                 <Container maxWidth="lg" className={classes.container}>
 
-                    <RoutesContainer styles={classes}/>
+                    <RoutesContainer styles={classes} />
 
                     {/* TODO: This copyright notice gets overwritten by above router thing */}
                     {/* <Box pt={4}> */}

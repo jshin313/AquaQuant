@@ -27,19 +27,19 @@ export default function Sensors(props) {
             <Grid item xs={12} md={4}>
                 <Paper className={fixedHeightPaper}>
                     {/* TODO: Put thing here */}
-                    <SensorsPage watersource="Faucet" title="Upstairs Bathroom Sink" date={date}/>
+                    <SensorsPage watersource="Faucet" title="Upstairs Bathroom Sink" date={date} />
                 </Paper>
             </Grid>
             <Grid item xs={12} md={4}>
                 <Paper className={fixedHeightPaper}>
                     {/* TODO: Put thing here */}
-                    <SensorsPage watersource="Shower" title="Shower" date={date}/>
+                    <SensorsPage watersource="Shower" title="Shower" date={date} />
                 </Paper>
             </Grid>
             <Grid item xs={12} md={4}>
                 <Paper className={fixedHeightPaper}>
                     {/* TODO: Put thing here */}
-                    <SensorsPage watersource="Toilet" title="Upstairs Toilet" date={date}/>
+                    <SensorsPage watersource="Toilet" title="Upstairs Toilet" date={date} />
                 </Paper>
             </Grid>
 

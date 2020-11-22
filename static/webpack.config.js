@@ -7,7 +7,8 @@ const config = {
     output:{
         path: resolve('../public'),
         filename: 'bundle.js',
-        publicPath: resolve('../public')
+        publicPath: resolve('../public'),
+        globalObject: 'this' //!!!This line
     },
     resolve: {
         extensions: ['.js','.jsx','.css'],
@@ -28,6 +29,8 @@ const config = {
                 // },
             }
         ]
-    }
+    },
+
 };
+
 module.exports = config;

@@ -3,7 +3,6 @@
 /** Unmount code from: https://www.robinwieruch.de/react-warning-cant-call-setstate-on-an-unmounted-component **/
 
 import React from 'react';
-import axios from 'axios';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
@@ -40,13 +39,13 @@ export default class SensorsPage extends React.Component {
             watersource: this.props.watersource,
             date: this.props.date,
             status: 'Water Not Running',
+            on_iot: false,
         } 
         // this.imageurl = watersourcetypes["Faucet"];
         this.imageurl = watersourcetypes[this.state.watersource];
         this.today = (new Date()).toISOString().slice(0, 10);
 
         this.changeStatus = this.changeStatus.bind(this)
-        this._isMounted = false;
     }
 
     changeStatus(isOn) {
@@ -57,24 +56,22 @@ export default class SensorsPage extends React.Component {
     }
 
     componentDidMount() {
-        this._isMounted = true;
-        axios.get(`http://www.reddit.com/r/reactjs.json`)
-            .then(res => {
-                if (this._isMounted) {
-                    const posts = res.data.data.children.map(obj => obj.data);
-                    this.setState({ posts });
-                }
-            });
+        this.timer = setInterval(() => {
+            var datavar = document.getElementById("datavar").innerHTML;
+
+            console.log(datavar);
+
+        }, 1000);
     }
 
     componentWillUnmount() {
-        this._isMounted = false;
+      clearInterval(this.timer);
+
     }
 
     render() {
         // let {classes} = this.props;
         // const fixedHeightPaper = clsx(classes.paper, newHeight);
-
         return (
             <div>
                 <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
@@ -88,7 +85,7 @@ export default class SensorsPage extends React.Component {
                 </div>
 
                 {/* Stopwatch stuff */}
-                <Stopwatch handler={this.changeStatus}/>
+                <Stopwatch handler={this.changeStatus} on_iot={this.state.on_iot}/>
 
                 {/* <Timer /> */}
 

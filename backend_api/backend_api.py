@@ -11,6 +11,12 @@ from datetime import datetime
 from sqlalchemy.ext.declarative import DeclarativeMeta
 from backend_api.convert import convert_to_gallons
 
+is_on = {
+    'faucet': False,
+    'toilet': False,
+    'shower': False,
+}
+
 # Code for AlchemyEncoder from https://stackoverflow.com/questions/5022066/how-to-serialize-sqlalchemy-result-to-json
 class AlchemyEncoder(json.JSONEncoder):
     def default(self, obj):
@@ -104,11 +110,6 @@ class Year(Resource):
         }, 200
 
 class On(Resource):
-    is_on = {
-        'faucet': False,
-        'toilet': False,
-        'shower': False,
-    }
     def __init__(self):
         self.reqparse = reqparse.RequestParser()
         self.reqparse.add_argument('on', type = bool)
@@ -121,16 +122,16 @@ class On(Resource):
         print(water_source)
         return  {
             'water_source': args['water_source'],
-            'on': self.is_on[water_source],
+            'on': is_on[water_source],
         }, 200
 
     # Tell the UI that water source is on or off
     def post(self):
         args = self.reqparse.parse_args()
         if args['on'] == True:
-            self.is_on[args['water_source']] = True
+            is_on[args['water_source']] = True
         else:
-            self.is_on[args['water_source']] = False
+            is_on[args['water_source']] = False
 
             
         return  {
