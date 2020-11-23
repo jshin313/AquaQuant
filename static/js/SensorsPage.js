@@ -69,7 +69,7 @@ export default class SensorsPage extends React.Component {
 
             this.changeStatus(this.state.on_iot);
             
-            // console.log(this.state.on_iot);
+            console.log(this.state.on_iot);
 
         }, 1000);
     }
