@@ -22,6 +22,8 @@ The IoT sensors work by detecting vibrations within the water pipes since whenev
 
 The IoT sensor utilizes cheap (\$3) WiFi modules and a piezo vibration sensor that converts mechanical energy to electrical signals in order to communicate via a custom built REST API. The dashboard then allows for monitoring exactly which devices are currently on and how water usage changes over time.
 
+The water flow rate of most water sources (e.g. faucets, showers, toilet flushes) are pretty much constant, so all you need is the time the water source is on to calculate the total amount of water each device uses. For example, one toilet flush is approximately 5 gallons and one minute of a bathroom faucet running is equivalent to 2 gallons used.
+
 Although vibrational sensors were the main IoT sensors used during testing, it is possible to utilize hall effect/turbine sensors for the dashboard (this has not been tested though).
 
 [A 2020 Philly Codefest Submission](https://philly-codefest-2020.devpost.com/)
