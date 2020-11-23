@@ -67,10 +67,7 @@ export default class SensorsPage extends React.Component {
                 on_iot: on_status[this.props.watersource.toLowerCase()] == 'true',
             });
 
-            if (this.state.on_iot)
-            {
-                this.changeStatus(true);
-            }
+            this.changeStatus(this.state.on_iot);
             
             // console.log(this.state.on_iot);
 

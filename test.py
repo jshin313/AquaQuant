@@ -40,7 +40,7 @@ payload2 = {
 
 # POST request test for On
 print(" --- POST TEST for On --- ")
-r = requests.post('https://aquaquant.herokuapp.com/api/on', data={'water_source': 'toilet', 'on':'True'}).json()
+r = requests.post('http://aquaquant.herokuapp.com/api/on', data={'water_source': 'toilet', 'on':'False'}).json()
 print(r)
 print()
 
